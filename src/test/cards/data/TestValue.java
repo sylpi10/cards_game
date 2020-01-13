@@ -9,12 +9,22 @@ import cards.data.Value;
 class TestValue {
 
 	@Test
-	void test() {
-		Value val = Value.THREE;
+	void testValue() {
+		Value val = Value.ACE;
 		int cmp = val.compareTo(Value.JACK);
 		System.out.println("ace compareto jack : " + cmp);
 		int o = val.ordinal();
-		System.out.println("ordinal : " + o);
+		System.out.println("ordinal : " + o);	
+		
 	}
+	
+	@Test
+	void aceHigher() {
+		for (Value val : Value.values()) {
+			int newOrdinal = (val.ordinal() + 12) %13;
+			System.out.println(val + " : " + newOrdinal);
+		}
+	}
+	
+}	
 
-}
