@@ -3,6 +3,7 @@ package test.cards.data;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -83,6 +84,17 @@ class TestCard {
 		boolean isRemoved;
 		isRemoved = game52.removeIf(c -> c.getFamily() == fam);
 		System.out.println(fam + " is deleted : " + isRemoved);
+		System.out.println(game52.size() + " cards left");
+		
+		// < java 8
+		Value value = Value.FOUR;
+		for (Iterator iterator = game52.iterator(); iterator.hasNext();) {
+			Card card = (Card) iterator.next();
+			if (card.getValue() == value) {
+				iterator.remove();
+			}
+		}
+		System.out.println("");
 		System.out.println(game52.size() + " cards left");
 	}
 	
