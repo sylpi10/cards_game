@@ -26,6 +26,25 @@ public class Card {
 	public String toString() {
 		return  value + " " + family;
 	}
+
+	@Override
+	public int hashCode() {
+		
+		return Objects.hash(value, family);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Card other = (Card) obj;
+		return this.value == other.value && this.family.equals(other.family);
+	}
+	
 	
 	
 }
